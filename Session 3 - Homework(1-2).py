@@ -1,9 +1,3 @@
-###### Practice num1
-
-
-### x = 5
-### y = 4
-
 x = int(input(" Value for the length of the Rectangle:\n"))
 y = int(input(" Value for the width of the Rectangle:\n"))
  

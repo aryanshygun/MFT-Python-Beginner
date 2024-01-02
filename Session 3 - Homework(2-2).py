@@ -1,8 +1,3 @@
-###### Practice num 2
-
-
-### n = 10
-
 Fibonacci = []
 
 n = int(input("Give me a value for n:\n"))
