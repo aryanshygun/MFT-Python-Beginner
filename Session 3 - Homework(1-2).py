@@ -1,4 +1,4 @@
-############## hollow rectangle
+#برنامه ای بنویسید که طول و عرض یک مستطیل را گرفته و در خروجی یک مستطیل تو خالی با ورودی های داده شده رسم کند 
 
 x = int(input(" Value for the length of the Rectangle:\n"))
 y = int(input(" Value for the width of the Rectangle:\n"))
