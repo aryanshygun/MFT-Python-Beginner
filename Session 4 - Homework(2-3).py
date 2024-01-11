@@ -13,3 +13,15 @@ if perfect_divides == 2:
     print("This number is a Prime.")
 else:
     print("This number is not a Prime.")
+
+
+n = int(input())
+factor= 0
+for i in range(2,n):
+    if n%i == 0:
+        factor+=1
+        break
+if factor == 1 :
+    print('not prime')
+else:
+    print('prime')
