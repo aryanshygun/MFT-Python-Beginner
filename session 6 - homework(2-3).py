@@ -25,13 +25,13 @@ for i in range(y):
         row.append(int(x))
     matrix2.append(row)
     
-print("This is the first matrix:")
-for row in matrix1:
-    print(row)
+# print("This is the first matrix:")
+# for row in matrix1:
+#     print(row)
 
-print("This is the second matrix:")
-for row in matrix2:
-    print(row)
+# print("This is the second matrix:")
+# for row in matrix2:
+#     print(row)
     
 matrix3 = []
 for x in range(len(matrix1)):
@@ -43,6 +43,6 @@ for x in range(len(matrix1)):
         row.append(element)
     matrix3.append(row)
     
-print("This is the third matrix:")
+# print("This is the third matrix:")
 for row in matrix3:
     print(row)
