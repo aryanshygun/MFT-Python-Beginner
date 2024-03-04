@@ -16,3 +16,5 @@ def prime_check(n):
     
 n = int(input())
 print(prime_check(n))
+
+
