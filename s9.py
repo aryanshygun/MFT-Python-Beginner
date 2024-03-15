@@ -4,11 +4,85 @@ import time
 __user_path = 'MFT-Python/user.json'
 __post_path = 'MFT-Python/post.json'
 
+    
 with open(__user_path, 'r') as f:
     users = json.load(f)
 with open(__post_path, 'r') as f:
     posts = json.load(f)
     
+class User:
+    def __init__(self, username, password, fname, lname, bio, admin) -> None:
+        self.username = username
+        self.password = password
+        self.fname = fname
+        self.lname = lname
+        self.bio = bio
+        self.admin = admin
+    def to_dict(self):
+        d = {self.username:{
+            'password': self.password,
+            'name':{
+                'first_name': self.fname,
+                'last_name' : self.lname
+            },
+            'bio': self.bio,
+            'admin': self.admin
+        }}
+        return d
+    
+class Post:
+    def __init__(self, post, author, text, time = time.time(), like = 0) -> None:
+        self.post = post
+        self.author = author
+        self.text = text
+        self.time = time
+        self.like = like
+    def to_dict(self):
+        d = {self.post:{
+            'author': self.author,
+            'text': self.text,
+            'time': self.time,
+            'like': self.like
+        }}
+        return d
+
+xuser = []
+for i, j in users.items():
+    usr = User(
+        i,
+        j["password"],
+        j["name"]["first_name"],
+        j["name"]["last_name"],
+        j["bio"],
+        j["admin"]
+    )
+    xuser.append(usr)
+
+for x in xuser:
+    print(x.username, x.first_name, x.last_name, x.admin)
+
+for i, j in users.items():
+    pst = Post(
+        i,
+        j["password"],
+        j["name"]["first_name"],
+        j["name"]["last_name"],
+        j["bio"],
+        j["admin"]
+    )
+    xuser.append(usr)
+
+xpost = []
+for i, j in posts.items():
+    message = Post(
+        i,
+        j["author"],
+        j["text"],
+        j["time"],
+        j["like"]
+    )
+    xpost.append(message)
+
 
 def register_user():
     User_username = input('username: ')
