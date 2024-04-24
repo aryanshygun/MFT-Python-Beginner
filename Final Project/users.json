@@ -1,0 +1,30 @@
+{
+    "bijan": {
+        "first_name": "Bijan",
+        "last_name": "Ahmadi",
+        "password": "123",
+        "bio": "bijantine",
+        "isadmin": true
+    },
+    "amir": {
+        "first_name": "Amir",
+        "last_name": "Shygun",
+        "password": "456",
+        "bio": "ryanole",
+        "isadmin": true
+    },
+    "ali": {
+        "first_name": "Ali",
+        "last_name": "Sdvds",
+        "password": "123",
+        "bio": "aliar",
+        "isadmin": false
+    },
+    "fed": {
+        "first_name": "Fed",
+        "last_name": "Dfb",
+        "password": "2434",
+        "bio": "34v",
+        "isadmin": false
+    }
+}

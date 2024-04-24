@@ -1,8 +1,11 @@
 from peewee import *
+import json
+import os
+db = SqliteDatabase('Edu/MFT-Python/Final Project/Z_project.db')
 
 class DefaultModel(Model):
     class Meta:
-        database = SqliteDatabase('ZPROJECT/ZDB.db')
+        database = db
 
 class Users(DefaultModel):
     username = CharField(max_length=32, unique=True, index=True)
@@ -13,12 +16,53 @@ class Users(DefaultModel):
     isadmin = BooleanField()
 
 class Posts(DefaultModel):
-    author = ForeignKeyField(Users, backref='posts', on_delete='CASCADE')
+    author = CharField()
     text = TextField()
     time = DateTimeField()
     like = IntegerField()
 
+# db.connect()
+# db.create_tables([Users, Posts])
 
-DefaultModel._meta.database.connect()
-DefaultModel._meta.database.create_tables([Users, Posts])
-
+class Actions:
+    @staticmethod
+    def add_tables():
+        db.connect()
+        db.create_tables([Users,Posts])
+    
+    @staticmethod
+    def add():
+        user_path = 'Edu/MFT-Python/Final Project/users.json'
+        with open(user_path, 'r') as file:
+            users = json.load(file)
+        for username, user_info in users.items():
+            Users.create(
+                username=username,
+                password=user_info['password'],
+                first_name=user_info['first_name'],
+                last_name=user_info['last_name'],
+                bio=user_info['bio'],
+                isadmin=user_info['isadmin']
+            )
+            
+        post_path = 'Edu/MFT-Python/Final Project/posts.json'
+        with open(post_path, 'r') as file:
+            posts = json.load(file)
+            
+        for post_id, post_info in posts.items():
+            Posts.create(
+                post_id=post_id,
+                author=post_info['author'],
+                text=post_info['text'],
+                time=post_info['time'],
+                like=post_info['like']
+            )
+        
+            
+def execute_database():
+    if not os.path.exists('Edu/MFT-Python/Final Project/Z_project.db'):
+        Actions.add_tables()
+        Actions.add()
+        
+Actions.add_tables()
+Actions.add()
