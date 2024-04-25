@@ -27,7 +27,7 @@ class SocialMedia:
     def dump_posts(self,x):
         with open(self.__posts_path, 'w') as file:
             json.dump(x, file, indent=4)
-            
+        
     ############################################    
     # HEADER - LOGIN - REGISTRATION - TERMINATION - EXITTING
     ############################################ 
@@ -54,37 +54,38 @@ class SocialMedia:
                     print('Incorrect password, Try again!') 
             print('Unfortunately this username is not registered yet! Try again\n')
         
-    # def registration(self):
-    #     print("Enter the person's username:")
-    #     while True:
-    #         username = input()
-    #         if Users.select().where(Users.username == username).exists():
-    #             print('Unfortunately this username already exists, Try again!\n')
-    #         break
-    #     print("Would this person be another admin? Y/N")      
-    #     while True:
-    #         isadmin = input()
-    #         if isadmin == "Y":
-    #             isadmin = True
-    #             break
-    #         elif isadmin == "N":
-    #             isadmin = False
-    #             break
-    #         else:
-    #             print("Invalid Response, Try again!\n")
-    #     userlist = self.load_users()
-    #     userlist[username] = {
-    #         "first_name": username.title(),
-    #         "last_name": input('Enter their last name:\n').title(),
-    #         "password": input('Enter their password:\n'),
-    #         "bio": input('bio:\n'),
-    #         "isadmin": isadmin}
-    #     self.dump_users(userlist)
-    #     os.remove('Edu/MFT-Python/Final Project/Z_project.db')
-    #     Actions.add_tables()
-    #     Actions.add()
-    #     print('User added to database successfully.')
-        # return True
+    def registration(self):
+        print("Enter the person's username:")
+        while True:
+            username = input()
+            if Users.select().where(Users.username == username).exists():
+                print('Unfortunately this username already exists, Try again!\n')
+            else:
+                print("Would this person be another admin? Y/N")      
+                while True:
+                    isadmin = input()
+                    if isadmin == "Y":
+                        isadmin = True
+                        break
+                    elif isadmin == "N":
+                        isadmin = False
+                        break
+                    else:
+                        print("Invalid Response, Try again!\n")
+                userlist = self.load_users()
+                userlist[username] = {
+                    "first_name": username.title(),
+                    "last_name": input('Enter their last name:\n').title(),
+                    "password": input('Enter their password:\n'),
+                    "bio": input('bio:\n'),
+                    "isadmin": isadmin}
+                self.dump_users(userlist)
+                # os.remove('Edu/MFT-Python/Final Project/Z_project.db')
+                # Actions.drop_tables()
+                # Actions.add_tables()
+                # Actions.add()
+                print('User added to database successfully.')
+                return True
     
     # def termination(self, status): 
     #     self.view_list(status)
@@ -99,10 +100,10 @@ class SocialMedia:
     #     print("--------------------------------------------------")
     #     return True
     
-    # def exitting(self):
-    #     print('Bye!')
-    #     self.header()
-    #     self.login()
+    def exitting(self):
+        print('Bye!')
+        self.header()
+        self.login()
          
     ############################################    
     # VIEWING - POSTING

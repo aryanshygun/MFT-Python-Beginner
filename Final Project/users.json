@@ -26,5 +26,40 @@
         "password": "2434",
         "bio": "34v",
         "isadmin": false
+    },
+    "dorsa": {
+        "first_name": "Dorsa",
+        "last_name": "34Gwr",
+        "password": "3423",
+        "bio": "sv",
+        "isadmin": false
+    },
+    "poria": {
+        "first_name": "Poria",
+        "last_name": "Fbre",
+        "password": "2423",
+        "bio": "eerb",
+        "isadmin": false
+    },
+    "yazdan": {
+        "first_name": "Yazdan",
+        "last_name": "Dbfefbe",
+        "password": "24525",
+        "bio": "erdb",
+        "isadmin": false
+    },
+    "sdfbsd": {
+        "first_name": "Sdfbsd",
+        "last_name": "Aefbe",
+        "password": "123",
+        "bio": "dsfbssb",
+        "isadmin": false
+    },
+    "svvafb": {
+        "first_name": "Svvafb",
+        "last_name": "Ebewb",
+        "password": "123",
+        "bio": "wfsgfdb",
+        "isadmin": false
     }
 }
